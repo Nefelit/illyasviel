@@ -24,6 +24,7 @@ class BotEvents extends Enmap {
                 this.client.on(eventName, loadedEvent);
                 delete require.cache[require.resolve(`${this.dir}/${event}`)];
             });
+        return this.client;
     }
 } 
 

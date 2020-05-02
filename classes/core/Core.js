@@ -1,3 +1,3 @@
-let client = require('./illyasviel');
+let client = require('./Illyasviel');
 
 module.exports = client;

@@ -1,5 +1,6 @@
 const { Client } = require('discord.js')
 const BotEvents = require('../loaders/Events');
+const BotCommands = require('../loaders/Commands');
 /**
  * Основное ядро бота, измененный клиент
  * 
@@ -18,6 +19,7 @@ class Illyasviel extends Client {
 
 
         this.events = null;
+        this.commands = null;
     }
 
     /**
@@ -49,6 +51,7 @@ class Illyasviel extends Client {
         this.eventsDir = options.eventsDir;
 
         this.events = new BotEvents({ dir: options.eventsDir, client: this })
+        this.commands = new BotCommands({ dir: options.commandsDir, client: this })
         return this;
     }
 

@@ -4,7 +4,7 @@
  * join - функция для создания абсолютного пути с помощью __dirname
  */
 
-const Core = require('../classes/core/illyasviel') 
+const Core = require('../classes/core/Illyasviel') 
 const config = require('../config')
 const package = require('../package')
 const join = require('path').join
@@ -21,6 +21,7 @@ core.setup({
     eventsDir: join(__dirname, '..', 'src', 'events')
 })
     .events.load()
+    .commands.load()
 
 
 core.lauch().then(() => {
