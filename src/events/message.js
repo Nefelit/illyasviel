@@ -2,7 +2,7 @@ let cooldown = new Set();
 let {MessageEmbed} = require('discord.js')
 module.exports = async message => {
     if (message.channel.type !== "text" || message.author.bot) return null;
-    message.guild.prefix = 'i!';
+    message.guild.prefix = '>';
 
 
     let args = message.content
