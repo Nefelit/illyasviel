@@ -17,13 +17,12 @@ const client = core = new Core();
 core.setup({
     token: config.token,
     version: package.version,
-    commandsDir: join(__dirname, '..', 'commands'),
-    eventsDir: join(__dirname, '..', 'events')
+    commandsDir: join(__dirname, '..', 'src', 'commands'),
+    eventsDir: join(__dirname, '..', 'src', 'events')
 })
-core.on('ready', () => {
-    console.log(client.user.tag)
-    client.generateInvite().then(console.log)
-})
+    .events.load()
+
+
 core.lauch().then(() => {
    process.stdin.resume(); /** Программа закроется не моментально, что позволит сохранить данные */
     
@@ -38,3 +37,5 @@ process.on('uncaughtException', err => {
     console.log(`Процесс будет продолжен.`.cyan)
     console.log(`----------------------------->`.cyan)
 })
+
+module.exports = core;
