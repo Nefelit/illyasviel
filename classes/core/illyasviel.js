@@ -1,5 +1,5 @@
 const { Client } = require('discord.js')
-
+const BotEvents = require('../loaders/Events');
 /**
  * Основное ядро бота, измененный клиент
  * 
@@ -12,9 +12,12 @@ const { Client } = require('discord.js')
  * const Core = new Illyasviel()
  * Core.lauch();
  */
-class illyasviel extends Client {
+class Illyasviel extends Client {
     constructor(...options) {
         super(...options)
+
+
+        this.events = null;
     }
 
     /**
@@ -44,6 +47,9 @@ class illyasviel extends Client {
          * Папка с ивентами
          */
         this.eventsDir = options.eventsDir;
+
+        this.events = new BotEvents({ dir: options.eventsDir, client: this })
+        return this;
     }
 
 
@@ -53,4 +59,4 @@ class illyasviel extends Client {
     }
 }
 
-module.exports = illyasviel;
+module.exports = Illyasviel;
