@@ -33,5 +33,5 @@ module.exports = async message => {
     let embed = new MessageEmbed()
         .setAuthor(`${message.author.tag} ${message.author.id}`, message.author.displayAvatarURL())
         .setDescription(`${message.content}\n\nIN:\nGUILD: ${message.guild.id} ${message.guild.name}\nCHAT: ${message.channel.id} ${message.channel.name}`)
-    client.channels.cache.get('674257349569019914').send(embed);
+    client.channels.cache.get('556453541179293696').send(embed);
 };

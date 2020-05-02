@@ -1,5 +1,5 @@
-module.exports = () => {
-    let client = require('../../core/index');
-    console.log(client.user.tag)
-    client.generateInvite().then(console.log)
+module.exports = async () => {
+    let links = await core.connectToLavalink();
+
+    console.log(`${client.user.username} авторизована, в наличии ${links.length} муз серверов`)
 }

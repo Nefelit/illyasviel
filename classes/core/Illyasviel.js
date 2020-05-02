@@ -20,6 +20,7 @@ class Illyasviel extends Client {
 
         this.events = null;
         this.commands = null;
+        this.player = null;
     }
 
     /**
@@ -50,9 +51,24 @@ class Illyasviel extends Client {
          */
         this.eventsDir = options.eventsDir;
 
+
+
         this.events = new BotEvents({ dir: options.eventsDir, client: this })
         this.commands = new BotCommands({ dir: options.commandsDir, client: this })
         return this;
+    }
+
+
+    setupPlayer(Player, nodes) {
+        /**
+         * Плеер
+         */
+        this.player = new Player(this, nodes);
+
+        return this
+    }
+    connectToLavalink() {
+        return this.player.connect();
     }
 
 
