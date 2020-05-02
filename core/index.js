@@ -13,7 +13,7 @@ const join = require('path').join
 const colors = require('colors')
 
 
-const client = core = new Core();
+global['client'] = core = new Core(); // я знаю что global плохо, но мне можно, я уебан.
 core.setup({
     token: config.token,
     version: package.version,
@@ -25,9 +25,7 @@ core.setup({
 
 
 core.lauch().then(() => {
-   process.stdin.resume(); /** Программа закроется не моментально, что позволит сохранить данные */
-    
-    
+   process.stdin.resume(); /** Программа закроется не моментально, что позволит сохранить данные */    
 })
 
 process.on('uncaughtException', err => {
