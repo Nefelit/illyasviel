@@ -9,7 +9,7 @@ const Core = require('../classes/core/Illyasviel')
 const config = require('../config')
 const package = require('../package')
 const join = require('path').join
-const player = require('../classes/MusicPlayer')
+const player = require('../classes/MusicManager')
 
 /** Декорация */
 const colors = require('colors')
@@ -24,7 +24,6 @@ core
         eventsDir: join(__dirname, '..', 'src', 'events'),
         player: require('../classes/MusicPlayer')
     })
-    .setupPlayer(player, config.nodes)
     .events.load()
     .commands.load()
     .lauch().then(() => {

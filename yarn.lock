@@ -83,7 +83,7 @@ get-youtube-id@0.1.3:
   resolved "https://registry.yarnpkg.com/get-youtube-id/-/get-youtube-id-0.1.3.tgz#eb76a0534cb7e9d1fcce5d4b61a0820d32d6855d"
   integrity sha1-63agU0y36dH8zl1LYaCCDTLWhV0=
 
-lavacord@latest:
+lavacord@^1.1.7, lavacord@latest:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/lavacord/-/lavacord-1.1.7.tgz#3ccf84a6037654a94b2e2512f689a1743ba2ddff"
   integrity sha512-LXuFA/NvbXjINaNf0P0EiCmB/vmCY1qQhOtwwg/g3Oaza3jR1ZCtl0yHgNII3DuSJzUdlGcRrCCt2HEeXcaPkA==

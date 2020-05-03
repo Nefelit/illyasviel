@@ -1,6 +1,7 @@
 const { Client } = require('discord.js')
 const BotEvents = require('../loaders/Events');
 const BotCommands = require('../loaders/Commands');
+const MusicPlayer = require('../MusicPlayer')
 /**
  * Основное ядро бота, измененный клиент
  * 
@@ -63,7 +64,21 @@ class Illyasviel extends Client {
         /**
          * Плеер
          */
-        this.player = new Player(this, nodes);
+        this.player = new Player(nodes, {
+            user: this.user.id,
+            Player: MusicPlayer,
+            send: packet => {
+                if (this.guilds.cache) {
+                    const guild = this.guilds.cache.get(packet.d.guild_id);
+                    if (guild) return guild.shard.send(packet); // Отправка пакета на шард.
+                } else {
+                    // @ts-ignore
+                    const guild = this.guilds.get(packet.d.guild_id);
+                    // @ts-ignore
+                    if (guild) return typeof this.ws.send === "function" ? this.ws.send(packet) : guild.shard.send(packet);
+                }
+            }
+        });
 
         return this
     }
